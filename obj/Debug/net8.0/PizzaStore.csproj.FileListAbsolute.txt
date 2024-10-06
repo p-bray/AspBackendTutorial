@@ -33,3 +33,4 @@ C:\Users\pbr23\Documents\WebStuff\LearingASP\PizzaStore\obj\Debug\net8.0\refint\
 C:\Users\pbr23\Documents\WebStuff\LearingASP\PizzaStore\obj\Debug\net8.0\PizzaStore.pdb
 C:\Users\pbr23\Documents\WebStuff\LearingASP\PizzaStore\obj\Debug\net8.0\PizzaStore.genruntimeconfig.cache
 C:\Users\pbr23\Documents\WebStuff\LearingASP\PizzaStore\obj\Debug\net8.0\ref\PizzaStore.dll
+C:\Users\pbr23\Documents\WebStuff\LearingASP\PizzaStore\obj\Debug\net8.0\PizzaStore.sourcelink.json

@@ -9,6 +9,7 @@ namespace PizzaStore.Models
         public string? Description {get; set;}
     }
 
+    //using the entity framework, we need to create a context to help create the database connection. 
     public class PizzaDb : DbContext
     {
         public PizzaDb(DbContextOptions options) : base(options) {}
