@@ -1019,19 +1019,21 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pbr23\\Documents\\WebStuff\\LearingASP\\PizzaStore\\PizzaStore.csproj",
+      "projectUniqueName": "C:\\Users\\pbr23\\Documents\\WebStuff\\LearningASP\\AspBackendTutorial\\PizzaStore.csproj",
       "projectName": "PizzaStore",
-      "projectPath": "C:\\Users\\pbr23\\Documents\\WebStuff\\LearingASP\\PizzaStore\\PizzaStore.csproj",
+      "projectPath": "C:\\Users\\pbr23\\Documents\\WebStuff\\LearningASP\\AspBackendTutorial\\PizzaStore.csproj",
       "packagesPath": "C:\\Users\\pbr23\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pbr23\\Documents\\WebStuff\\LearingASP\\PizzaStore\\obj\\",
+      "outputPath": "C:\\Users\\pbr23\\Documents\\WebStuff\\LearningASP\\AspBackendTutorial\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\pbr23\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pbr23\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

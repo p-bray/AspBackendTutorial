@@ -28,12 +28,15 @@ if (app.Environment.IsDevelopment())
 
 //With entity framwork, this is VERY lightweight way of just doing standard crud stuff. 
 //It's all async and has to be due ot EntityFramewookr stuff
-//The general Idea of all this is that you use a lambda with an asyy 
+//The general Idea of all this is that you use an async function and call a series of async methods
+//in these app.map methods.   
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync());
 app.MapGet("/pizza/{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id));
 
 
+//In the following methods, you changing data on the db. For this, you do all the changes to the
+//object, then you have to run await db.SaveChangesAsyc();
 app.MapPost("/pizza", async (PizzaDb db, Pizza pizza) =>
 {
     await db.Pizzas.AddAsync(pizza);
@@ -50,5 +53,17 @@ app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatePizza, int id) =>
     await db.SaveChangesAsync();
     return Results.NoContent();
 });
+
+app.MapDelete("/pizza/{id}", async (PizzaDb db, int id) => {
+    var pizza = await db.Pizzas.FindAsync(id);
+    if(pizza is null) return Results.NotFound();
+    db.Pizzas.Remove(pizza);
+    await db.SaveChangesAsync();
+    return Results.Ok();
+});
+
+
+//This is the problem line.
+// app.MapGet("/stores", async (StoreDb db) => await db.Stores.ToListAsync());
 
 app.Run();
