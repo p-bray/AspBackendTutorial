@@ -4,9 +4,19 @@ using PizzaStore.Models;
 using System.Xml;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("Pizzas") ?? "Data Source=Pizzas.db";
+
+
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+
+//These calls make it so we use an internal, in memory db
+// builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+// builder.Services.AddDbContext<StoreDb>(options => options.UseInMemoryDatabase("items"));
+
+//Establish a DB in SQLite
+builder.Services.AddSqlite<PizzaDb>(connectionString);
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo {

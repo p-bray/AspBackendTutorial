@@ -11,13 +11,14 @@ namespace PizzaStore.Models
     }
 
     //This DbContext essentially just let's you have a Database session.
-    public class StoreDb : DbContext 
-    {
-        //contstructor that passes any custom options
-        public StoreDb(DbContextOptions options) : base(options) {}
-        //DbSet stores essentially just represents the Store entities in the Db
-        public DbSet<Store> Stores {get; set;} = null!;
-    }
+    //This is currently commented out as we can't have more than one DbContext in this tutorial. 
+    // public class StoreDb : DbContext 
+    // {
+    //     //contstructor that passes any custom options
+    //     public StoreDb(DbContextOptions options) : base(options) {}
+    //     //DbSet stores essentially just represents the Store entities in the Db
+    //     public DbSet<Store> Stores {get; set;} = null!;
+    // }
 }
 
 
