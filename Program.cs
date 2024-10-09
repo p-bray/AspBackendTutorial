@@ -3,7 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using PizzaStore.Models;
 using System.Xml;
 
+//establish our builder
 var builder = WebApplication.CreateBuilder(args);
+
+//establish our DB connection string. 
 var connectionString = builder.Configuration.GetConnectionString("Pizzas") ?? "Data Source=Pizzas.db";
 
 
@@ -17,6 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 //Establish a DB in SQLite
 builder.Services.AddSqlite<PizzaDb>(connectionString);
 
+//Add swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo {
@@ -26,6 +30,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+//establish our app
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
@@ -36,11 +41,13 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseRouting();
+
 //With entity framwork, this is VERY lightweight way of just doing standard crud stuff. 
 //It's all async and has to be due ot EntityFramewookr stuff
 //The general Idea of all this is that you use an async function and call a series of async methods
 //in these app.map methods.   
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello World");
 app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync());
 app.MapGet("/pizza/{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id));
 
